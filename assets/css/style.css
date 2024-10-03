@@ -1,0 +1,165 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    -webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+body{
+    font-size:14px;
+	background: #fff;
+    max-width:1920px;
+    margin:0 auto;
+	overflow-x:hidden;
+	font-family: poppins;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+/* header  */
+.header{
+    height: 3rem;
+    padding: 1.5rem 2rem;
+}
+
+.navbar{
+    display: flex;
+}
+
+.logo{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #092753;
+}
+.navlist{
+    display: flex;
+    justify-content: space-between;
+    left: 60%;
+    position: absolute;
+}
+
+.img-icon{
+    width: 100%;
+    height: 20%;
+}
+
+.nav-item{
+    margin: 0.5rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* section */
+
+.container{
+    margin: 2rem auto;
+
+}
+
+/* footer section start */
+
+#footer{
+    position: relative;
+    margin-top: 3rem;
+    padding: 3rem;
+    background-color: #092753;
+    color: #fff;
+}
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-about{
+    width: 20rem;
+    height: 10rem;
+    text-align: center;
+}
+
+.footer-about p {
+    line-height: 1.3rem;
+}
+
+.useful-link{
+    line-height: 1.5rem;
+}
+
+.useful-link h4{
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.use-links{
+    margin-left: 1rem;
+    color: black !important
+}
+.use-links li{
+    list-style: square;
+    margin-top: .5rem;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.use-links a{
+    color: #fff;
+}
+
+.social-links{
+    line-height: 2rem;
+}
+
+.social-links h4{
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.social-icons li{
+    list-style: square;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.social-icons a{
+    color: #fff;
+}
+
+.address{
+    line-height: 2rem;
+}
+
+.address h4{
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.address-links li{
+    font-size: 1rem;
+    color: #fff;
+}
+
+.address-links a{
+    color: #fff;
+}
+
+.copy-right-sec{
+	padding: 1.8rem;
+    background: #fcfcfc;
+    text-align: center;
+    font-size: 17px;
+    letter-spacing: .2rem;
+}
+.copy-right-sec a{
+    font-weight: 500;
+}
+
+/* footer section end */
+
