@@ -52,19 +52,39 @@ li{
     position: relative;
 }
 
-.img-icon{
-    width: 100%;
-    height: 20%;
-}
-
 .nav-item{
     margin: 0.5rem 2rem;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.15rem;
+    position: relative;
+    
+}
+
+.nav-item .active{
+    color: #d9138a;
+}
+
+.nav-item::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.175rem;
+    left: 0;
+    bottom: 1%;
+    background-color: #d9138a;
+}
+
+.nav-item::after{
+    transform: scale(0,1);
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover::after{
+    transform: scale(1,1);
 }
 
 .nav-item a{
-    color: black;
+    color: #092753;
 }
 
 
@@ -72,7 +92,59 @@ li{
 
 .container{
     margin: 2rem auto;
+}
 
+.section-one{
+    display: flex;
+}
+
+.tagline{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 3.5rem;
+    margin-top: 9rem;
+    color: #168474;
+}
+
+.img-icon{
+    width: 55%;
+    height: 15%;
+    position: relative;
+    left: 0;
+    /* top: -26%; */
+    margin-top: 4rem;
+}
+.section-two{
+    margin: 10rem 3rem 4rem 3rem;
+    display: grid;
+    grid-template-columns: 42% 54%;
+}
+
+.about-section{
+    padding: 2rem;
+    width: 34rem;
+    margin-top: 4rem;
+}
+
+.about-section h3, p{
+    text-align: center;
+}
+
+.functionality{
+    display: flex;
+    margin: 2rem;
+}
+
+.functionality img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 20%;
+}
+
+.functionality .desc{
+    margin-left: 2rem;
+    text-align: justify;
+    font-size: 1rem;
 }
 
 /* footer section start */
@@ -87,7 +159,7 @@ li{
 .row{
     display: flex;
     justify-content: space-around;
-    
+    margin: 3rem 1rem;
 }
 
 .footer-about{
@@ -174,8 +246,19 @@ li{
 /* footer section end */
 
 
-/* Patient login */
+/* Login */
 
+.login-section{
+    display: flex;
+    left: 5%;
+    position: relative;
+}
+
+.home-icon{
+    margin: 6rem 0 4rem 4rem;
+    width: 40rem;
+    height: 30rem;
+}
 .box{
     position: relative;
     width: 50rem;
@@ -184,7 +267,7 @@ li{
     /* border-radius: 50px 5px; */
     overflow: hidden;
     top: 50%;
-    left: 45%;
+    left: 0;
     margin-top: 6rem;
 }
 
