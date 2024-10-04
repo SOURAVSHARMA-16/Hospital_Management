@@ -60,10 +60,6 @@ li{
     
 }
 
-.nav-item .active{
-    color: #d9138a;
-}
-
 .nav-item::after{
     content: '';
     position: absolute;
