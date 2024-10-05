@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html> 
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Health Guard | Registration </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Health Guard | Registration </title>
+    <link rel="stylesheet" href="../static/css/registration.css">
+    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+
 </head>
 
 <body>
@@ -11,131 +15,117 @@
         <div class="navbar">
             <a href="/" class="logo">HealthGuard</a>
             <ul class="navlist">
-                <li class="nav-item"><a href="./index.html">HOME</a></li>
-                <li class="nav-item  "><a href="./patient.html">PATIENT</a></li>
-                <li class="nav-item"><a href="./doctor.html">DOCTOR</a></li>
-                <li class="nav-item"><a href="./admin.html">ADMIN</a></li>
+                <li class="nav-item"><a href="/">HOME</a></li>
+                <li class="nav-item  "><a href="/patient-home">PATIENT</a></li>
+                <li class="nav-item"><a href="/doctor-home">DOCTOR</a></li>
+                <li class="nav-item"><a href="/admin">ADMIN</a></li>
             </ul>
         </div>
     </div>
 
-	<!-- Image title -->
-
-	<div style="text-align: center; margin-top: 50px;">
-	<h2>PATIENT REGISTRATION</h2>
-	</div>
-
-	<!-- End title  -->
-
-
-				<!--=== Content Part ===-->
-
-                <section class="login-section">
-                    <img class="home-icon" src="../static/images/patient-home.jpg" alt="">
-                    <div class="box">
-                        <form action="">
-				
-                            <h2>Register a new account</h2>
-                            <p>Already Signed Up? Click <a href="login.html" >Sign In</a> to login your account.</p>
-                            <!-- Name Credentials-->
-                            <div class="input-box">
-                                <label>First Name</label>
-                                <input type="text"  style="margin-bottom: 20px;" required="">
-            
-                                <label>Last Name</label>
-                                <input type="text"  style="margin-bottom: 20px;" required="">
-                            </div>
-                            <!--Phone and Email-->
-                            <div class="input-box">
-                                <label>Email Address <span >*</span></label>
-                                <input type="text" class="form-control " style="margin-bottom: 20px;" required="">
-                
-                                <label for="phone">Phone Number:</label>
-                                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="phone number" required>
-                            </div>
     
-                            <br>
-                            <!-- Password Credentials-->
-                            <div class="input-box">
-                                <label>Password <span>*</span></label>
-                                <input type="password"  style="margin-bottom: 20px;" required="">
-                            
-                                <label>Confirm Password <span >*</span></label>
-                                <input type="password" style="margin-bottom: 20px;" required="">
-                            </div>
-                            <hr>
-                            <!--Register-->
-                            <label>
-                            <input type="checkbox" required="">
-                            I read <a href="#" >Terms and Conditions</a>
-                            </label>
-                            
-                            <button type="submit">Register</button>
-                            </form>
+    <h2 class="title">PATIENT REGISTRATION</h2>
+
+    <!--=== Content Part ===-->
+
+    <section class="login-section">
+        <img class="home-icon-p" src="../static/images/patient-home.jpg" alt="">
+        <div class="box-p">
+            <form action="/register/patient" method="POST">
+                <div class="input-box">
+                    <h2>Register a new account</h2>
+                    <input type="name" name="username" required>
+                    <span>Name</span>
+                    <i></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" required>
+                    <span>Email</span>
+                    <i></i>
+                </div>
+                <div class="input-box">
+                    <input type="number" name="phoneno" required>
+                    <span>Phone Number</span>
+                    <i></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="pass" required>
+                    <span>Password</span>
+                    <i></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="confirmpass" required>
+                    <span>Confirm Password</span>
+                    <i></i>
+                </div>
+                <input type="submit" value="Register">
+                <div class="links">
+                    <p>Already have an account?<a href="/patient_login">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!--/container-->
+    <!--=== End Content Part ===-->
+
+    <footer id="footer">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="footer-about">
+                    <a href="index.html"><img src="" alt="" class="img-fluid logo-footer"></a>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, </p>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="useful-link">
+                    <h4>Useful Links</h4>
+                    <div class="use-links">
+                        <li><a href="index.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
+                        <li><a href="gallery.html"><i class="fa-solid fa-angles-right"></i>Patient</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-angles-right"></i> Doctor</a></li>
                     </div>
-                </section>
-				
-				<!--/container-->
-				<!--=== End Content Part ===-->
+                </div>
 
-	
-
-                <footer id="footer">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="footer-about">
-                                <a href="index.html"><img src="" alt="" class="img-fluid logo-footer"></a>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                                    the industry's standard dummy text ever since the 1500s, </p>
-                            </div>
-                
-                        </div>
-                        <div class="col-md-3">
-                            <div class="useful-link">
-                                <h4>Useful Links</h4>
-                                <div class="use-links">
-                                    <li><a href="index.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
-                                    <li><a href="about.html"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
-                                    <li><a href="gallery.html"><i class="fa-solid fa-angles-right"></i>Patient</a></li>
-                                    <li><a href="contact.html"><i class="fa-solid fa-angles-right"></i> Doctor</a></li>
-                                </div>
-                            </div>
-                
-                        </div>
-                        <div class="col-md-3">
-                            <div class="social-links">
-                                <h4>Follow Us</h4>
-                                <div class="social-icons">
-                                    <li><a href=""><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
-                                    <li><a href=""><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                                    <li><a href=""><i class="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
-                                </div>
-                            </div>
-                
-                
-                        </div>
-                        <div class="col-md-3">
-                            <div class="address">
-                                <h4>Address</h4>
-                                <div class="address-links">
-                                    <li class="address1"><i class="fa-solid fa-location-dot"></i> Kolathur ramankulam-
-                                        Malappuram Dt
-                                        Kerala 679338</li>
-                                    <li><a href=""><i class="fa-solid fa-phone"></i> +91 90904500112</a></li>
-                                    <li><a href=""><i class="fa-solid fa-envelope"></i> mail@1234567.com</a></li>
-                                </div>
-                            </div>
-                        </div>
-                
+            </div>
+            <div class="col-md-3">
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <li><a href=""><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href=""><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                        <li><a href=""><i class="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
                     </div>
-                    </footer>
-                    <!-- footer section end -->
+                </div>
 
 
-                    <!-- footer copy right section start -->
-                    <div id="copy-right">
-                        <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>
+            </div>
+            <div class="col-md-3">
+                <div class="address">
+                    <h4>Address</h4>
+                    <div class="address-links">
+                        <li class="address1"><i class="fa-solid fa-location-dot"></i> Kolathur ramankulam-
+                            Malappuram Dt
+                            Kerala 679338</li>
+                        <li><a href=""><i class="fa-solid fa-phone"></i> +91 90904500112</a></li>
+                        <li><a href=""><i class="fa-solid fa-envelope"></i> mail@1234567.com</a></li>
                     </div>
-                    <!-- footer copy right section end -->
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- footer section end -->
+
+
+    <!-- footer copy right section start -->
+    <div id="copy-right">
+        <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>
+    </div>
+    <!-- footer copy right section end -->
 </body>
+
 </html>

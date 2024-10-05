@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealthGuard</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -14,16 +15,16 @@
         <div class="navbar">
             <a href="/" class="logo">HealthGuard</a>
             <ul class="navlist">
-                <li class="nav-item  "><a href="./index.html">HOME</a></li>
-                <li class="nav-item"><a href="./patient.html">PATIENT</a></li>
-                <li class="nav-item"><a href="./doctor.html">DOCTOR</a></li>
-                <li class="nav-item"><a href="./admin.html">ADMIN</a></li>
+                <li class="nav-item"><a href="/">HOME</a></li>
+                <li class="nav-item  "><a href="/patient-home">PATIENT</a></li>
+                <li class="nav-item"><a href="/doctor-home">DOCTOR</a></li>
+                <li class="nav-item"><a href="/admin">ADMIN</a></li>
             </ul>
         </div>
     </div>
 
     <!-- section -->
-    <div class="container">
+     <section>
         <div class="section-one">
             <p class="tagline">Your Health, Our Priority <br> Accessible Care Anytime, Anywhere</p>
             <img src="/static/images/home-page.jpg" class="img-icon" alt="">
@@ -50,8 +51,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
+    </section>
 
     <footer id="footer">
         <div class="row">
@@ -109,6 +109,8 @@
         <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>
     </div>
     <!-- footer copy right section end -->
+
+    <script src="../static/js/hamburger.js"></script>
 </body>
 
 </html>
