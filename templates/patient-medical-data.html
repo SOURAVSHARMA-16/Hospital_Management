@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Health Guard | Registration </title>
+    
+    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="navbar">
+            <a href="/" class="logo">HealthGuard</a>
+        </div>
+    </div>
+
+    
+    <h2 class="title">PATIENT MEDICAL DATA</h2>
+
+    <!--=== Content Part ===-->
+
+    <section class="patient-data">
+        <img class="home-icon-p" src="../static/images/patient-home.jpg" alt="">
+        <div class="container">
+            <h2>Personal Data Form</h2>
+            <form action="" method="POST">
+                <!-- Patient's Name -->
+                <label for="name">Patient Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter patient's full name" required>
+    
+                <!-- Age -->
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="Enter patient's age" required>
+    
+                <!-- Gender -->
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+    
+                <!-- Contact Email -->
+                <label for="email">Contact Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter patient's email" required>
+    
+                <!-- Medical History -->
+                <label for="medical_history">Medical History</label>
+                <textarea id="medical_history" name="medical_history" placeholder="Enter patient's medical history" rows="4" required></textarea>
+    
+                <!-- Current Medications -->
+                <label for="medications">Current Medications</label>
+                <textarea id="medications" name="medications" placeholder="Enter current medications, if any" rows="3" required></textarea>
+    
+                <!-- Known Allergies -->
+                <label for="allergies">Known Allergies</label>
+                <textarea id="allergies" name="allergies" placeholder="Enter any known allergies" rows="3"></textarea>
+    
+                <!-- Chronic Diseases -->
+                <label for="chronic_diseases">Chronic Diseases</label>
+                <textarea id="chronic_diseases" name="chronic_diseases" placeholder="Enter any chronic diseases (e.g., diabetes, hypertension)" rows="3"></textarea>
+    
+                <!-- Recent Surgeries -->
+                <label for="recent_surgeries">Recent Surgeries</label>
+                <textarea id="recent_surgeries" name="recent_surgeries" placeholder="Enter details of any recent surgeries, if applicable" rows="3"></textarea>
+    
+                <!-- Upload Medical Reports -->
+                <label for="file">Upload Medical Reports</label>
+                <input type="file" id="file" name="file" multiple required>
+    
+                <!-- Submit Button -->
+                <button type="submit">Submit Medical Data</button>
+            </form>
+        </div>
+    </section>
+
+    <!--/container-->
+    <!--=== End Content Part ===-->
+
+    <footer id="footer">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="footer-about">
+                    <a href="index.html"><img src="" alt="" class="img-fluid logo-footer"></a>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, </p>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="useful-link">
+                    <h4>Useful Links</h4>
+                    <div class="use-links">
+                        <li><a href="index.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
+                        <li><a href="gallery.html"><i class="fa-solid fa-angles-right"></i>Patient</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-angles-right"></i> Doctor</a></li>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <li><a href=""><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href=""><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                        <li><a href=""><i class="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+                <div class="address">
+                    <h4>Address</h4>
+                    <div class="address-links">
+                        <li class="address1"><i class="fa-solid fa-location-dot"></i> Kolathur ramankulam-
+                            Malappuram Dt
+                            Kerala 679338</li>
+                        <li><a href=""><i class="fa-solid fa-phone"></i> +91 90904500112</a></li>
+                        <li><a href=""><i class="fa-solid fa-envelope"></i> mail@1234567.com</a></li>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- footer section end -->
+
+
+    <!-- footer copy right section start -->
+    <div id="copy-right">
+        <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>
+    </div>
+    <!-- footer copy right section end -->
+</body>
+
+</html>

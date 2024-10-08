@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Health Guard | Registration </title>
+    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="navbar">
+            <a href="/" class="logo">HealthGuard</a>
+            
+        </div>
+    </div>
+
+    
+    <h2 class="title">PATIENT DATA</h2>
+
+    <!--=== Content Part ===-->
+
+    <section class="patient-data">
+        <img class="home-icon-p" src="../static/images/patient-home.jpg" alt="">
+        <div class="container">
+            <h2>Patient Personal Data Form</h2>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="patient-name">Full Name</label>
+                    <input type="text" id="patient-name" name="patient_name" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+        
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!--/container-->
+    <!--=== End Content Part ===-->
+
+    <footer id="footer">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="footer-about">
+                    <a href="index.html"><img src="" alt="" class="img-fluid logo-footer"></a>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, </p>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="useful-link">
+                    <h4>Useful Links</h4>
+                    <div class="use-links">
+                        <li><a href="index.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
+                        <li><a href="gallery.html"><i class="fa-solid fa-angles-right"></i>Patient</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-angles-right"></i> Doctor</a></li>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <li><a href=""><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href=""><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                        <li><a href=""><i class="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+                <div class="address">
+                    <h4>Address</h4>
+                    <div class="address-links">
+                        <li class="address1"><i class="fa-solid fa-location-dot"></i> Kolathur ramankulam-
+                            Malappuram Dt
+                            Kerala 679338</li>
+                        <li><a href=""><i class="fa-solid fa-phone"></i> +91 90904500112</a></li>
+                        <li><a href=""><i class="fa-solid fa-envelope"></i> mail@1234567.com</a></li>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- footer section end -->
+
+
+    <!-- footer copy right section start -->
+    <div id="copy-right">
+        <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>
+    </div>
+    <!-- footer copy right section end -->
+</body>
+
+</html>
