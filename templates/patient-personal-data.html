@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Health Guard | Registration </title>
-    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+    <link rel="stylesheet" href="../static/css/patient.css">
 
 </head>
 
@@ -13,32 +13,27 @@
     <div class="header">
         <div class="navbar">
             <a href="/" class="logo">HealthGuard</a>
-            
+
         </div>
     </div>
-
-    
-    <h2 class="title">PATIENT DATA</h2>
 
     <!--=== Content Part ===-->
 
     <section class="patient-data">
-        <img class="home-icon-p" src="../static/images/patient-home.jpg" alt="">
+        <img class="patient_img" src="../static/images/medical-banner-with-doctor-patient.jpg" alt="">
         <div class="container">
-            <h2>Patient Personal Data Form</h2>
+            <h2>Patient Data</h2>
+            <span>Unique Patient ID: 113498</span>
             <form action="" method="POST">
                 <div class="form-group">
-                    <label for="patient-name">Full Name</label>
-                    <input type="text" id="patient-name" name="patient_name" required>
+                    <input type="number" id="patient-age" name="patient_age" placeholder="Enter your Age" required>
                 </div>
-        
+
                 <div class="form-group">
-                    <label for="dob">Date of Birth</label>
-                    <input type="date" id="dob" name="dob" required>
+                    <input type="text" id="bloodgroup" name="bloodgroup" placeholder="Blood Group" required>
                 </div>
-        
+
                 <div class="form-group">
-                    <label for="gender">Gender</label>
                     <select id="gender" name="gender" required>
                         <option value="" disabled selected>Select gender</option>
                         <option value="male">Male</option>
@@ -46,22 +41,23 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-        
+
                 <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" name="address" required>
+                    <input type="text" id="bloodpressure" name="bloodpressure" placeholder="Blood Pressure" required>
                 </div>
-        
+
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="text" id="phone" name="phone" required>
+                    <input type="text" id="pulse" name="pulse" placeholder="Pulse Rate" required>
                 </div>
-        
+
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="number" id="temp" name="temp" placeholder="Body Temperature" required>
                 </div>
-        
+
+                <div class="form-group">
+                    <input type="text" id="medication" name="medication" placeholder="Current Medications" required>
+                </div>
+                <!-- create a file uploader -->
                 <button type="submit">Submit</button>
             </form>
         </div>
@@ -120,8 +116,6 @@
         </div>
     </footer>
     <!-- footer section end -->
-
-
     <!-- footer copy right section start -->
     <div id="copy-right">
         <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>

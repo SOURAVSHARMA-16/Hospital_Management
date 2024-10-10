@@ -26,6 +26,7 @@ try:
     )
     db = client["healthdatabase"]
     users_collection = db["users"]
+    doctors_collection = db["doctors"]
 except Exception as e:
     print(f"Error connecting to MongoDB: {e}")
     raise
@@ -67,7 +68,7 @@ def registration(name):
     if request.method == "POST" : 
         username = request.form.get('username')
         email = request.form.get('email')
-        phoneno = request.form.get('phoneno')
+        phone = request.form.get('phone')
         password = request.form.get('pass')
         confirmpass = request.form.get('confirmpass')
 
@@ -85,42 +86,73 @@ def registration(name):
                 return redirect(url_for('patient_register'))
             else:
                 return redirect(url_for('doctor_register'))
-        
-        new_user = {
+    
+
+        if 'name' == 'patient':
+            new_user = {
             'username':username,
             'email':email,
-            'phoneno' : phoneno,
+            'phone' : phone,
             'password' : password
-        }
-        users_collection.insert_one(new_user)
-        flash("Registration Successful")
-        if 'name' == 'patient':
+            }
+            users_collection.insert_one(new_user)
+            flash("Registration Successful")
             return redirect(url_for('patient_login'))
         else:
+            new_user = {
+            'username':username,
+            'email':email,
+            'phone' : phone,
+            'password' : password
+            }
+            doctors_collection.insert_one(new_user)
+            flash("Registration Successful")
             return redirect(url_for('doctor_login'))
 
     
-@app.route('/login', methods=["POST"])
-def login():
+@app.route('/patientsignin', methods=["POST"])
+def patientsignin():
     email = request.form.get('email')
     password = request.form.get('password')
     if not email or not password:
         return jsonify({'msg': 'Email and password are required'}), 400
     user_from_db = users_collection.find_one({"email":email})
 
+    if not user_from_db:
+        return jsonify({'msg':'User does not exist'}), 400
+
     if user_from_db and password == user_from_db.get("password"):
         access_token = create_access_token(identity=user_from_db["email"])
-        response = make_response(redirect('/patientdummy'))
-        response.set_cookie('access_token_cookie', access_token, httponly=True)  # Secure the cookie
+        response = make_response(redirect('/home-patient'))
+        response.set_cookie('access_token_cookie', access_token, httponly=True) 
         return response
         
     return jsonify({'msg':'Email or password is incorrect'}), 400
 
-@app.route('/patientdummy')
+@app.route('/home-patient')
 @jwt_required()
 def protected():
     current_user = get_jwt_identity()
     return render_template('patient-home.html', email=current_user)
+
+@app.route('/doctorsignin', methods=["POST"])
+def doctorsignin():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    if not email or not password:
+        return jsonify({'msg': 'Email and password are required'}), 400
+    doctor_details = doctors_collection.find_one({"email":email})
+
+    if not doctor_details:
+        return jsonify({'msg':'User does not exist'}), 400
+
+    if doctor_details and password == doctor_details.get("password"):
+        access_token = create_access_token(identity=doctor_details["email"])
+        response = make_response(redirect('/home-patient'))
+        response.set_cookie('access_token_cookie', access_token, httponly=True) 
+        return response
+        
+    return jsonify({'msg':'Email or password is incorrect'}), 400
 
 
 if __name__ == "__main__":

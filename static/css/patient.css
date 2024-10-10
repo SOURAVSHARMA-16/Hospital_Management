@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    /* box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-size: 14px;
+    background: #fff;
+    margin: 0 auto;
+    overflow-x: hidden;
+    font-family: poppins;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.header {
+    height: 3rem;
+    padding: 1.5rem 2rem;
+}
+
+.navbar {
+    display: flex;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #092753;
+}
+
+.patient-data .patient_img {
+    width: 100%;
+    height: 100vh;
+    margin-top: 2rem;
+}
+
+.container {
+    margin: 5rem;
+    background: rgb(229 229 229 / 25%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translate(10%, 20%);
+    padding: 2rem;
+    width: 80rem;
+}
+
+
+.container h2 {
+    font-size: 35px;
+    text-transform: uppercase;
+    margin: 3rem 30rem;
+}
+
+.container span{
+    margin: 3rem;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.container form {
+    gap: 2rem;
+    width: 44rem;
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    margin-left: 3rem;
+}
+
+
+.container form input, select {
+    grid-column: span 1;
+    padding: 10px 7px;
+    width: 34rem;
+    border-radius: 9px;
+    border: none;
+    font-size: 18px;
+
+}
+
+.container form input #medication, button{
+    grid-column: span 2;
+}
+
+form button{
+    margin-left: 55rem;
+    padding: 0.75rem;
+    width: 15rem;
+    border-radius: 10px;
+    background-color: beige;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 17px;
+}
+
+
+/* Medical Data */
+
+.container-p{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 8rem 4rem;
+}
+
+.container-p h2{
+    margin-bottom: 5rem;
+    font-size: 37px;
+}
+table, th{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+th{
+    padding: 1rem;
+}
+
+#footer {
+    margin-top: 3rem;
+    padding: 3rem;
+    background-color: #292c31;
+    color: #fff;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 1rem;
+}
+
+.footer-about {
+    width: 20rem;
+    height: 10rem;
+    text-align: center;
+}
+
+.footer-about p {
+    line-height: 1.3rem;
+}
+
+.useful-link {
+    line-height: 1.5rem;
+}
+
+.useful-link h4 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.use-links {
+    margin-left: 1rem;
+    color: black !important
+}
+
+.use-links li {
+    list-style: square;
+    margin-top: .5rem;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.use-links a {
+    color: #fff;
+}
+
+.social-links {
+    line-height: 2rem;
+}
+
+.social-links h4 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.social-icons li {
+    list-style: square;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.social-icons a {
+    color: #fff;
+}
+
+.address {
+    line-height: 2rem;
+}
+
+.address h4 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.address-links li {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.address-links a {
+    color: #fff;
+}
+
+.copy-right-sec {
+    background: #fcfcfc;
+    text-align: center;
+    font-size: 17px;
+    letter-spacing: .2rem;
+}
+
+#copy-right {
+    padding: 2rem;
+}
+
+.copy-right-sec a {
+    font-weight: 500;
+}
