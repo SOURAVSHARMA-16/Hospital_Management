@@ -1,0 +1,333 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    border-bottom: 2px solid #333;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #10213D;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px; /* Reduced spacing between elements */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #10213D;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.logout button {
+    background-color: #041b5a;
+    color: #ede9e9;
+    border: 1px solid #333;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.logout button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+section.content {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #001f3f;
+    border-bottom: 2px solid #001f3f;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #033e7d;
+    color: white;
+}
+
+.approve-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.reject-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+section.assign-doctor {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 2rem;
+    color: #111212;
+    margin-bottom: 0.5rem;
+}
+
+.form-group select {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-btn {
+
+    display: flex;
+    justify-content: center;
+}
+
+.submit-btn button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #053d63;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn button:hover {
+    background-color: #033454;
+}
+
+/* h2 {
+    font-size: 36px;
+    color: #001f3f;
+    margin-bottom: 10px;
+}
+
+p.website-link {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+select {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.logo-container {
+    margin-top: 30px;
+}
+
+.logo-container img {
+    width: 200px;
+} */
+ /* footer section start */
+ #footer {
+    position: relative;
+    margin-top: 3rem;
+    padding: 3rem;
+    background-color: #292c31;
+    color: #fff;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 1rem;
+}
+
+.footer-about {
+    width: 20rem;
+    height: 10rem;
+    text-align: center;
+}
+
+.footer-about p {
+    line-height: 1.3rem;
+}
+
+.useful-link {
+    line-height: 1.5rem;
+}
+
+.useful-link h4 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.use-links {
+    margin-left: 1rem;
+    color: black !important
+}
+
+.use-links li {
+    list-style: square;
+    margin-top: .5rem;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.use-links a {
+    color: #fff;
+}
+
+.social-links {
+    line-height: 2rem;
+}
+
+.social-links h4 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.social-icons li {
+    list-style: square;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.social-icons a {
+    color: #fff;
+}
+
+.address {
+    line-height: 2rem;
+}
+
+.address h4 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.address-links li {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.address-links a {
+    color: #fff;
+}
+
+.copy-right-sec {
+    background: #fcfcfc;
+    text-align: center;
+    font-size: 17px;
+    letter-spacing: .2rem;
+}
+
+#copy-right {
+    padding: 2rem;
+}
+
+.copy-right-sec a {
+    font-weight: 500;
+}
+
+/* footer section end */
+/* Responsive design */
+/* @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    
+
+    .logo h1 {
+        font-size: 20px;
+    }
+} */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+    table th, table td {
+        padding: 8px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-text {
+        width: 90%;
+    }
+}
