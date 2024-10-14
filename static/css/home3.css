@@ -1,0 +1,223 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    border-bottom: 2px solid #333;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #10213D;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px; /* Reduced spacing between elements */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #10213D;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.logout button {
+    background-color: #041b5a;
+    color: #ede9e9;
+    border: 1px solid #333;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.logout button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full-screen height */
+    background-image: url('../images/cloud.jpg'); /* Replace with your image file */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better text readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    color: white;
+    font-size: 48px;
+    text-align: center;
+}
+/* main section  */
+main {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .image-container {
+    max-width: 100%;
+    position: relative;
+  }
+  
+  .image-container img {
+    width: 100%; /* Full-width image */
+    display: block;
+    height: auto; /* Maintain aspect ratio */
+  }
+
+
+ /* footer section start */
+
+#footer {
+    position: relative;
+    margin-top: 3rem;
+    padding: 3rem;
+    background-color: #292c31;
+    color: #fff;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 1rem;
+}
+
+.footer-about {
+    width: 20rem;
+    height: 10rem;
+    text-align: center;
+}
+
+.footer-about p {
+    line-height: 1.3rem;
+}
+
+.useful-link {
+    line-height: 1.5rem;
+}
+
+.useful-link h4 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.use-links {
+    margin-left: 1rem;
+    color: black !important
+}
+
+.use-links li {
+    list-style: square;
+    margin-top: .5rem;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.use-links a {
+    color: #fff;
+}
+
+.social-links {
+    line-height: 2rem;
+}
+
+.social-links h4 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.social-icons li {
+    list-style: square;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.social-icons a {
+    color: #fff;
+}
+
+.address {
+    line-height: 2rem;
+}
+
+.address h4 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.address-links li {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.address-links a {
+    color: #fff;
+}
+
+.copy-right-sec {
+    background: #fcfcfc;
+    text-align: center;
+    font-size: 17px;
+    letter-spacing: .2rem;
+}
+
+#copy-right {
+    padding: 2rem;
+}
+
+.copy-right-sec a {
+    font-weight: 500;
+}
+
+/* footer section end */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-text {
+        width: 90%;
+    }
+}
