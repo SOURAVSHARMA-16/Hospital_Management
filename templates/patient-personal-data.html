@@ -1,126 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Health Guard | Registration </title>
+    <title>Contact Data</title>
     <link rel="stylesheet" href="../static/css/patient.css">
-
 </head>
 
 <body>
-    <div class="header">
-        <div class="navbar">
-            <a href="/" class="logo">HealthGuard</a>
-
+    <header>
+        <div class="logo">
+            <a href="/">HealthGuard</a>
         </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="./patient_home.html">Home</a></li>
+                <li><a href="./patient-data.html">Upload Data</a></li>
+                <li><a href="./patient-medical-data.html">Medical Data</a></li>
+                <li><a href="./patient-personal-data.html">Contact Data</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="logout">
+        <button>Logout</button>
     </div>
-
-    <!--=== Content Part ===-->
-
-    <section class="patient-data">
-        <img class="patient_img" src="../static/images/medical-banner-with-doctor-patient.jpg" alt="">
-        <div class="container">
-            <h2>Patient Data</h2>
-            <span>Unique Patient ID: 113498</span>
-            <form action="" method="POST">
-                <div class="form-group">
-                    <input type="number" id="patient-age" name="patient_age" placeholder="Enter your Age" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" id="bloodgroup" name="bloodgroup" placeholder="Blood Group" required>
-                </div>
-
-                <div class="form-group">
-                    <select id="gender" name="gender" required>
-                        <option value="" disabled selected>Select gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" id="bloodpressure" name="bloodpressure" placeholder="Blood Pressure" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" id="pulse" name="pulse" placeholder="Pulse Rate" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="number" id="temp" name="temp" placeholder="Body Temperature" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" id="medication" name="medication" placeholder="Current Medications" required>
-                </div>
-                <!-- create a file uploader -->
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </section>
-
-    <!--/container-->
-    <!--=== End Content Part ===-->
-
-    <footer id="footer">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="footer-about">
-                    <a href="index.html"><img src="" alt="" class="img-fluid logo-footer"></a>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, </p>
-                </div>
-
-            </div>
-            <div class="col-md-3">
-                <div class="useful-link">
-                    <h4>Useful Links</h4>
-                    <div class="use-links">
-                        <li><a href="index.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
-                        <li><a href="about.html"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
-                        <li><a href="gallery.html"><i class="fa-solid fa-angles-right"></i>Patient</a></li>
-                        <li><a href="contact.html"><i class="fa-solid fa-angles-right"></i> Doctor</a></li>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-3">
-                <div class="social-links">
-                    <h4>Follow Us</h4>
-                    <div class="social-icons">
-                        <li><a href=""><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
-                        <li><a href=""><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                        <li><a href=""><i class="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="col-md-3">
-                <div class="address">
-                    <h4>Address</h4>
-                    <div class="address-links">
-                        <li class="address1"><i class="fa-solid fa-location-dot"></i> Kolathur ramankulam-
-                            Malappuram Dt
-                            Kerala 679338</li>
-                        <li><a href=""><i class="fa-solid fa-phone"></i> +91 90904500112</a></li>
-                        <li><a href=""><i class="fa-solid fa-envelope"></i> mail@1234567.com</a></li>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </footer>
-    <!-- footer section end -->
-    <!-- footer copy right section start -->
-    <div id="copy-right">
-        <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>
-    </div>
-    <!-- footer copy right section end -->
+    <h1>Lorem ipsum dolor sit amet.</h1>
 </body>
 
 </html>

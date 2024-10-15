@@ -1,66 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Details</title>
-    <link rel="stylesheet" href="../static/css/cloud1.css">
+    <title> Health Guard | Registration </title>
+    <link rel="stylesheet" href="../static/css/patient.css">
+
 </head>
+
 <body>
-    <header>
+    <div class="header">
         <div class="logo">
-            HealthGuard
+            <a href="/">HealthGuard</a>
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="./cloud_home.html">Home</a></li>
-                <li><a href="./cloud_patient_activation.html">Patients Activation</a></li>
-                <li><a href="./cloud_doctor_activation.html">Doctors Activation</a></li>
-                <li><a href="./cloud_patient_details.html">Patients</a></li>
-                <li><a href="./cloud_doctor_details.html">Doctors</a></li>
-                <li><a href="#">Files</a></li>
-                <li><a href="./cloud_assign_doctor.html">Assign Doctors</a></li>
-                <li><a href="#">Doctor Request</a></li>
+                <li><a href="./patient_home.html">Home</a></li>
+                <li><a href="./patient-data.html">Upload Data</a></li>
+                <li><a href="./patient-medical-data.html">Medical Data</a></li>
+                <li><a href="./patient-personal-data.html">Contact Data</a></li>
             </ul>
         </nav>
         <div class="logout">
             <button>Logout</button>
         </div>
-    </header>
+    </div>
 
-    <section class="assign-doctor">
-        <h2>Assign Doctor for Patients</h2>
-        <main>
-            <form action="#">
+    <!--=== Content Part ===-->
+
+    <section class="patient-data">
+        <img class="patient_img" src="../static/images/medical-banner-with-doctor-patient.jpg" alt="">
+        <div class="container">
+            <h2>Patient Data</h2>
+            <span>Unique Patient ID: 113498</span>
+            <form action="" method="POST">
                 <div class="form-group">
-                    <label for="patient">Select the Patient</label>
-                    <select id="patient" name="patient">
-                        <option value="1000">Patient ID: 1000</option>
-                        <!-- Add more patient IDs here if needed -->
+                    <input type="number" id="patient-age" name="patient_age" placeholder="Enter your Age" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="bloodgroup" name="bloodgroup" placeholder="Blood Group" required>
+                </div>
+
+                <div class="form-group">
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="doctor">Select the Doctor</label>
-                    <select id="doctor" name="doctor">
-                        <option value="D001">Doctor ID: D001 and Doctor Name: Sumit N
-                        </option>
-                        <option value="D002">Doctor ID: D002 and Doctor Name: Ankita Agarwal</option>
-                        <option value="D003">Doctor ID: D003 and Doctor Name: John Diamond</option>
-                        <!-- Add more doctor names here if needed -->
-                    </select>
+                    <input type="text" id="bloodpressure" name="bloodpressure" placeholder="Blood Pressure" required>
                 </div>
 
-                <div class="submit-btn">
-                    <button type="submit">Assign Doctor</button>
+                <div class="form-group">
+                    <input type="text" id="pulse" name="pulse" placeholder="Pulse Rate" required>
                 </div>
+
+                <div class="form-group">
+                    <input type="number" id="temp" name="temp" placeholder="Body Temperature" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="medication" name="medication" placeholder="Current Medications" required>
+                </div>
+                <!-- create a file uploader -->
+                <button type="submit">Submit</button>
             </form>
-        </main>
-    
+        </div>
     </section>
 
-     <!-- Footer -->
-     <footer id="footer">
+    <!--/container-->
+    <!--=== End Content Part ===-->
+
+    <footer id="footer">
         <div class="row">
             <div class="col-md-3">
                 <div class="footer-about">
@@ -75,10 +91,9 @@
                     <h4>Useful Links</h4>
                     <div class="use-links">
                         <li><a href="index.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
-                        <!-- <li><a href="about.html"><i class="fa-solid fa-angles-right"></i></a></li> -->
-                        <li><a href="patient.html"><i class="fa-solid fa-angles-right"></i>Patient</a></li>
-                        <li><a href="doctor.html"><i class="fa-solid fa-angles-right"></i> Doctor</a></li>
-                        <li><a href="admin.html"><i class="fa-solid fa-angles-right"></i> ADMIN</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
+                        <li><a href="gallery.html"><i class="fa-solid fa-angles-right"></i>Patient</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-angles-right"></i> Doctor</a></li>
                     </div>
                 </div>
 
@@ -116,7 +131,6 @@
         <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>
     </div>
     <!-- footer copy right section end -->
-
-    <script src="../static/js/hamburger.js"></script>
 </body>
+
 </html>

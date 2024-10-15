@@ -20,6 +20,15 @@
             </ul>
         </div>
     </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
 
     <section class="login-section">
     <img class="home-icon" src="../static/images/patient-home.jpg" alt="">
