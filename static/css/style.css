@@ -248,7 +248,7 @@ p {
 /* footer section end */
 
 /* responsive page for index.html */
-@media (max-width: 992px) and  (min-width: 500px) {
+@media (max-width: 992px) and (min-width: 500px) {
 
     .navlist {
         left: 22%;
@@ -333,7 +333,7 @@ p {
         margin: 2rem auto;
     }
 
-    .section-two{
+    .section-two {
         width: 100%;
     }
 
@@ -368,7 +368,7 @@ p {
         align-items: center;
     }
 
-    #footer{
+    #footer {
         width: 100%;
     }
 
@@ -389,9 +389,23 @@ p {
         margin: 1rem;
     }
 
-    #copy-right{
+    #copy-right {
         width: 100%;
     }
+
+    .flashes li{
+        position: absolute;
+        height: 3rem;
+        width: 15rem;
+        border: 1px solid black;
+        padding: 1rem;
+        left: 40%;
+        border-radius: 10px;
+        background-color: antiquewhite;
+        font-weight: 600;
+        transition: 2s all ease;
+    }
+
     /* .hamburger{
         width: 2.5rem;
         height: 2.5rem;

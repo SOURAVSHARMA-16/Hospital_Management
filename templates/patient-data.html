@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Data</title>
-    <link rel="stylesheet" href="../static/css/patient-data.css">
+    <title> Health Guard | Registration </title>
+    <link rel="stylesheet" href="../static/css/patient.css">
+
 </head>
 
 <body>
-    <header>
+    <div class="header">
         <div class="logo">
             <a href="/">HealthGuard</a>
         </div>
@@ -24,27 +25,58 @@
         <div class="logout">
             <button>Logout</button>
         </div>
-    </header>
+    </div>
+
+    <!--=== Content Part ===-->
+
     <section class="patient-data">
         <img class="patient_img" src="../static/images/medical-banner-with-doctor-patient.jpg" alt="">
         <div class="container">
-            <h2>Personal Data Form</h2>
+            <h2>Patient Data</h2>
+            <span>Unique Patient ID: 113498</span>
             <form action="" method="POST">
-                <input type="text" id="name" name="name" placeholder="Enter patient's full name" required>
-                <input type="number" id="age" name="age" placeholder="Enter patient's age" required>
-                <select id="gender" name="gender" required>
-                    <option value="">Select gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-                <input type="text" id="bloodgroup" name="bloodgroup" placeholder="Blood Group" required>
-                <input type="email" id="email" name="email" placeholder="Enter patient's email" required>
+                <div class="form-group">
+                    <input type="text" id="bloodpressure" name="bloodpressure" placeholder="Blood Pressure" required>
+                </div>
 
-                <button class="form_btn" type="submit">Submit Medical Data</button>
+                <div class="form-group">
+                    <input type="text" id="pulse" name="pulse" placeholder="Pulse Rate" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="number" id="temp" name="temp" placeholder="Body Temperature" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="medical_history" name="medical_history" placeholder="Enter patient's medical history" required></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea id="medications" name="medications" placeholder="Enter current medications, if any" rows="3" required></textarea>    
+                </div>
+                
+                <div class="form-group">
+                     <textarea id="allergies" name="allergies" placeholder="Enter any known allergies" rows="3"></textarea>
+                </div>
+               
+                <div class="form-group">
+                    <textarea id="chronic_diseases" name="chronic_diseases" placeholder="Enter any chronic diseases (e.g., diabetes, hypertension)" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="recent_surgeries" name="recent_surgeries" placeholder="Enter details of any recent surgeries, if applicable" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="file">Upload Medical Reports</label>
+                    <input type="file" id="file" name="file" multiple required>
+                </div>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </section>
+
+    <!--/container-->
+    <!--=== End Content Part ===-->
+
     <footer id="footer">
         <div class="row">
             <div class="col-md-3">
@@ -99,6 +131,7 @@
     <div id="copy-right">
         <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>
     </div>
+    <!-- footer copy right section end -->
 </body>
 
 </html>
