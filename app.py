@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify, render_template, flash, redirect, url
 from pymongo import MongoClient
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 import datetime
-import os
 
 
 # TMShmJ0HXVB5Rpf
@@ -37,14 +36,6 @@ except Exception as e:
 @app.route('/')
 def home():
     return render_template('index.html')
-
-@app.route('/patient-home')
-def patient():
-    return render_template('patient.html')
-
-@app.route('/doctor-home')
-def doctor():
-    return render_template('doctor.html')
 
 @app.route('/admin')
 def admin():
@@ -179,6 +170,24 @@ def doctorsignin():
 def token_protected():
     current_user = get_jwt_identity()
     return render_template('doctor_home.html', email=current_user)
+
+@app.route('/patient_home')
+def patient_home():
+    return render_template('patient_home.html')
+
+@app.route('/patient-data')
+def patient_data():
+    return render_template('patient-data.html')
+
+@app.route('/patient-medical-data')
+def patient_medical_data():
+    return render_template('/patient-medical-data.html')
+
+@app.route('/patient-personal-data')
+def patient_personal_data():
+    return render_template('patient-personal-data.html')
+
+
 
 
 if __name__ == "__main__":

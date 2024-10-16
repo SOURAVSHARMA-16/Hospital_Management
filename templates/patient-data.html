@@ -16,10 +16,10 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="./patient_home.html">Home</a></li>
-                <li><a href="./patient-data.html">Upload Data</a></li>
-                <li><a href="./patient-medical-data.html">Medical Data</a></li>
-                <li><a href="./patient-personal-data.html">Contact Data</a></li>
+                <li><a href="/patient_home">Home</a></li>
+                <li><a href="/patient-data">Upload Data</a></li>
+                <li><a href="/patient-medical-data">Medical Data</a></li>
+                <li><a href="/patient-personal-data">Contact Data</a></li>
             </ul>
         </nav>
         <div class="logout">
@@ -36,23 +36,6 @@
             <span>Unique Patient ID: 113498</span>
             <form action="" method="POST">
                 <div class="form-group">
-                    <input type="number" id="patient-age" name="patient_age" placeholder="Enter your Age" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" id="bloodgroup" name="bloodgroup" placeholder="Blood Group" required>
-                </div>
-
-                <div class="form-group">
-                    <select id="gender" name="gender" required>
-                        <option value="" disabled selected>Select gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
                     <input type="text" id="bloodpressure" name="bloodpressure" placeholder="Blood Pressure" required>
                 </div>
 
@@ -63,11 +46,29 @@
                 <div class="form-group">
                     <input type="number" id="temp" name="temp" placeholder="Body Temperature" required>
                 </div>
-
                 <div class="form-group">
-                    <input type="text" id="medication" name="medication" placeholder="Current Medications" required>
+                    <textarea id="medical_history" name="medical_history" placeholder="Enter patient's medical history" required></textarea>
                 </div>
-                <!-- create a file uploader -->
+                <div class="form-group">
+                    <textarea id="medications" name="medications" placeholder="Enter current medications, if any" rows="3" required></textarea>    
+                </div>
+                
+                <div class="form-group">
+                     <textarea id="allergies" name="allergies" placeholder="Enter any known allergies" rows="3"></textarea>
+                </div>
+               
+                <div class="form-group">
+                    <textarea id="chronic_diseases" name="chronic_diseases" placeholder="Enter any chronic diseases (e.g., diabetes, hypertension)" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="recent_surgeries" name="recent_surgeries" placeholder="Enter details of any recent surgeries, if applicable" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="file">Upload Medical Reports</label>
+                    <input type="file" id="file" name="file" multiple required>
+                </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
