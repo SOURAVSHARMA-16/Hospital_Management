@@ -1,66 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+/* General Reset */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background: #fff;
-    margin: 0 auto;
-    overflow-x: hidden;
-    font-family: poppins;
-}
-
-a{
-    text-decoration: none;
-}
-
-li{
-    list-style: none;
+    box-sizing: border-box;
 }
 
 /* Header Styles */
 header {
-    height: 3rem;
-    padding: 2rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0.75rem 0.5rem;
-}
-
-.logo a {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #092753;
-}
-
-.nav-links{
-    text-transform: uppercase;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 3rem;
-    font-size: 17px;
-    font-weight: 700;
-    margin: 0.5rem;
-    letter-spacing: 0.1rem;
+    padding: 10px 30px;
+    border-bottom: 2px solid #333;
 }
 
-.nav-links li a{
-    color: #092753;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #10213D;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px; /* Reduced spacing between elements */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #10213D;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .logout button {
     background-color: #041b5a;
     color: #ede9e9;
     border: 1px solid #333;
-    padding: 0.5rem 1rem;
+    padding: 5px 10px;
     cursor: pointer;
-    text-transform: uppercase;
 }
 
 .logout button:hover {
@@ -68,8 +50,6 @@ header {
     color: #fff;
 }
 
-
-/* Hero Section */
 .hero {
     position: relative;
     width: 100%;
@@ -218,25 +198,4 @@ main {
 
 .copy-right-sec a {
     font-weight: 500;
-}
-
-/* footer section end */
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-    }
-
-    .nav-links li {
-        margin: 10px 0;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .hero-text {
-        width: 90%;
-    }
 }

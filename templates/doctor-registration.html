@@ -14,13 +14,21 @@
             <a href="/" class="logo">HealthGuard</a>
             <ul class="navlist">
                 <li class="nav-item"><a href="/">HOME</a></li>
-                <li class="nav-item  "><a href="/patient-home">PATIENT</a></li>
-                <li class="nav-item"><a href="/doctor-home">DOCTOR</a></li>
+                <li class="nav-item"><a href="/patient_login">PATIENT</a></li>
+                <li class="nav-item"><a href="/doctor_login">DOCTOR</a></li>
                 <li class="nav-item"><a href="/admin">ADMIN</a></li>
             </ul>
         </div>
     </div>
-
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
     <h2 class="title">DOCTOR REGISTRATION</h2>
     <section class="login-section">
         <img class="home-icon-p" src="../static/images/doctor-home.jpeg" alt="">
