@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthGuard - Doctor Home</title>
-    <link rel="stylesheet" href="../static/css/home3.css">
+    <title>Request Patient Allocation</title>
+    <link rel="stylesheet" href="../static/css/doctor_style.css">
 </head>
 <body>
-    <header>
+    <div class="header">
         <div class="logo">
-            <span>HealthGuard</span>
+            <a href="/">HealthGuard</a>
         </div>
         <nav>
             <ul class="nav-links">
@@ -22,17 +22,23 @@
         <div class="logout">
             <button>Logout</button>
         </div>
+    </div>
+    <header>
+        <h1 style="text-align: center;">Request Patient Allocation</h1>
     </header>
+    <section class="patient-request">
+        <input type="text" placeholder="Search for a patient by name..." class="search-bar">
+        <div class="patient-result">
+            <h2>Jane Roe</h2>
+            <p>Age: 60</p>
+            <p>Condition: Diabetes</p>
+            <button class="request-btn">Request Allocation</button>
+        </div>
+        <!-- Add more patient results as needed -->
+    </section>
 
-    <main>
-            <h1>Doctor Home</h1>
-            <div class="image-container">
-                <img src="../static/images/doctor_homepage.jpg" alt="Doctors Image" class="hero-image">
-            </div>
-    </main>
 
-     <!-- Footer -->
-     <footer id="footer">
+    <footer id="footer">
         <div class="row">
             <div class="col-md-3">
                 <div class="footer-about">
@@ -47,10 +53,9 @@
                     <h4>Useful Links</h4>
                     <div class="use-links">
                         <li><a href="index.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
-                        <!-- <li><a href="about.html"><i class="fa-solid fa-angles-right"></i></a></li> -->
-                        <li><a href="patient.html"><i class="fa-solid fa-angles-right"></i>Patient</a></li>
-                        <li><a href="doctor.html"><i class="fa-solid fa-angles-right"></i> Doctor</a></li>
-                        <li><a href="admin.html"><i class="fa-solid fa-angles-right"></i> ADMIN</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
+                        <li><a href="gallery.html"><i class="fa-solid fa-angles-right"></i>Patient</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-angles-right"></i> Doctor</a></li>
                     </div>
                 </div>
 
@@ -83,12 +88,12 @@
         </div>
     </footer>
     <!-- footer section end -->
+
+
     <!-- footer copy right section start -->
     <div id="copy-right">
         <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>
     </div>
     <!-- footer copy right section end -->
-
-    <script src="../static/js/hamburger.js"></script>
 </body>
 </html>
