@@ -13,33 +13,46 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="./doctor_home.html">Home</a></li>
-                <li><a href="./doctor_Search_Patient.html">Patient Search</a></li>
-                <li><a href="./doctor_Request_Patient.html">Patient Request</a></li>
-                <li><a href="./doctor_Alloted_Patients.html">Patient Alloted</a></li>
+                <li><a href="/home-doctor">Home</a></li>
+                <li><a href="/doctor-search">Patient Search</a></li>
+                <li><a href="/doctor-request">Patient Request</a></li>
+                <li><a href="doctor-alloted">Patient Alloted</a></li>
             </ul>
         </nav>
         <div class="logout">
-            <button>Logout</button>
+            <a href="/logout"><button>Logout</button></a>
         </div>
     </div>
     <header>
         <h1 style="text-align: center;">Patients Allotted to Dr. Smith</h1>
     </header>
     <section class="patient-list">
+        {% for patient in patients %}
         <div class="patient">
-            <h2>John Doe</h2>
-            <p>Age: 45</p>
-            <p>Condition: Hypertension</p>
-            <a href="patient_details.html" class="view-details">View Full Details</a>
+            <h2>{{ patient.name }}</h2>
+            <p>Age: {{ patient.age }}</p>
+            <p>Condition: {{ patient.condition }}</p>
+            <div class="documents">
+                <h3>Documents:</h3>
+                <ul>
+                    {% for document in patient.documents %}
+                    <li>
+                        <strong>Uploaded At:</strong> {{ document.uploaded_at }}
+                        <button class="toggle-button" onclick="toggleDetails(this)">Show Details</button>
+                        <ul class="details" style="display: none;">
+                            <li>Blood Pressure: {{ document.blood_pressure }}</li>
+                            <li>Pulse Rate: {{ document.pulse_rate }}</li>
+                            <li>Body Temperature: {{ document.body_temp }}</li>
+                            <li>Medical History: {{ document.medical_history }}</li>
+                            <li>Current Medication: {{ document.current_medication }}</li>
+                            <li>Allergies: {{ document.allergies }}</li>
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-        <div class="patient">
-            <h2>Jane Roe</h2>
-            <p>Age: 60</p>
-            <p>Condition: Diabetes</p>
-            <a href="patient_details.html" class="view-details">View Full Details</a>
-        </div>
-        <!-- Add more patient entries as needed -->
+        {% endfor %}
     </section>
      <!--/container-->
     <!--=== End Content Part ===-->
@@ -101,5 +114,17 @@
         <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>
     </div>
     <!-- footer copy right section end -->
+    <script>
+        function toggleDetails(button) {
+            const details = button.nextElementSibling;
+            if (details.style.display === "none") {
+                details.style.display = "block";
+                button.textContent = "Hide Details";
+            } else {
+                details.style.display = "none";
+                button.textContent = "Show Details";
+            }
+        }
+    </script>
 </body>
 </html>

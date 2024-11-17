@@ -13,21 +13,20 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="./doctor_home.html">Home</a></li>
-                <li><a href="./doctor_Search_Patient.html">Patient Search</a></li>
-                <li><a href="./doctor_Request_Patient.html">Patient Request</a></li>
-                <li><a href="./doctor_Alloted_Patients.html">Patient Alloted</a></li>
+                <li><a href="/home-doctor">Home</a></li>
+                <li><a href="/doctor-search">Patient Search</a></li>
+                <li><a href="/doctor-request">Patient Request</a></li>
+                <li><a href="doctor-alloted">Patient Alloted</a></li>
             </ul>
         </nav>
         <div class="logout">
-            <button>Logout</button>
+            <a href="/logout"><button>Logout</button></a>
         </div>
     </div>
 
     <header>
         <h1 style="text-align: center;">Admitted Patients</h1>
     </header>
-
     <section class="patient-admitted">
         <table>
             <thead>
@@ -40,76 +39,15 @@
                 </tr>
             </thead>
             <tbody>
+                {% for item in patients%}
                 <tr>
-                    <td>John Doe</td>
-                    <td>45</td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.email}}</td>
                     <td>Hypertension</td>
                     <td>Cardiology</td>
                     <td><button class="details-btn">View Details</button></td>
                 </tr>
-                <tr>
-                    <td>Mary Smith</td>
-                    <td>52</td>
-                    <td>Arthritis</td>
-                    <td>Orthopedics</td>
-                    <td><button class="details-btn">View Details</button></td>
-                </tr>
-                <tr>
-                    <td>Emily Johnson</td>
-                    <td>38</td>
-                    <td>Asthma</td>
-                    <td>Pulmonology</td>
-                    <td><button class="details-btn">View Details</button></td>
-                </tr>
-                <tr>
-                    <td>Robert Brown</td>
-                    <td>63</td>
-                    <td>Diabetes</td>
-                    <td>Endocrinology</td>
-                    <td><button class="details-btn">View Details</button></td>
-                </tr>
-                <tr>
-                    <td>Linda Wilson</td>
-                    <td>71</td>
-                    <td>Alzheimer’s</td>
-                    <td>Neurology</td>
-                    <td><button class="details-btn">View Details</button></td>
-                </tr>
-                <tr>
-                    <td>Michael Martinez</td>
-                    <td>29</td>
-                    <td>Liver Disease</td>
-                    <td>Gastroenterology</td>
-                    <td><button class="details-btn">View Details</button></td>
-                </tr>
-                <tr>
-                    <td>Patricia Taylor</td>
-                    <td>54</td>
-                    <td>Kidney Stones</td>
-                    <td>Nephrology</td>
-                    <td><button class="details-btn">View Details</button></td>
-                </tr>
-                <tr>
-                    <td>James Anderson</td>
-                    <td>47</td>
-                    <td>Coronary Artery Disease</td>
-                    <td>Cardiology</td>
-                    <td><button class="details-btn">View Details</button></td>
-                </tr>
-                <tr>
-                    <td>Barbara Thomas</td>
-                    <td>66</td>
-                    <td>Pneumonia</td>
-                    <td>Pulmonology</td>
-                    <td><button class="details-btn">View Details</button></td>
-                </tr>
-                <tr>
-                    <td>Daniel Garcia</td>
-                    <td>42</td>
-                    <td>Spinal Stenosis</td>
-                    <td>Orthopedics</td>
-                    <td><button class="details-btn">View Details</button></td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </section>

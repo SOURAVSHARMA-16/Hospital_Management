@@ -1,8 +1,7 @@
 from flask import Flask, request, jsonify, render_template, flash, redirect, url_for,make_response
 from pymongo import MongoClient
-from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity,unset_jwt_cookies
 import datetime
-
 
 # TMShmJ0HXVB5Rpf
 app = Flask(__name__)
@@ -29,6 +28,7 @@ try:
     db = client["healthdatabase"]
     users_collection = db["users"]
     doctors_collection = db["doctors"]
+    documents_collection=db["documents"]
 except Exception as e:
     print(f"Error connecting to MongoDB: {e}")
     raise
@@ -36,6 +36,12 @@ except Exception as e:
 @app.route('/')
 def home():
     return render_template('index.html')
+@app.route('/logout')
+@jwt_required()
+def logout():
+    response = redirect(url_for('home')) 
+    unset_jwt_cookies(response) 
+    return response
 
 @app.route('/admin')
 def admin():
@@ -56,6 +62,46 @@ def doctor_login():
 @app.route('/doctor_register')
 def doctor_register():
     return render_template('doctor-registration.html')
+
+@app.route('/patient_data_upload', methods=['POST'])
+@jwt_required()
+def patient_data_up():
+    current_user = get_jwt_identity()  # Extract the email from JWT
+    user = users_collection.find_one({"email": current_user})  # Fetch user data based on email
+
+    if not user:
+        flash("User not found", "danger")
+        return redirect(url_for('patient_home'))
+
+    blood_pressure = request.form.get('bloodpressure')
+    pulse_rate = request.form.get('pulse')
+    body_temp = request.form.get('temp')
+    medical_history = request.form.get('medical_history')
+    current_medication = request.form.get('medications')
+    allergies = request.form.get('allergies')
+
+    if not all([blood_pressure, pulse_rate, body_temp, medical_history, current_medication]):
+        flash("All fields except allergies are required", "danger")
+        return redirect(url_for('patient_home'))
+
+    document = {
+        "owner_id": str(user["_id"]),
+        "owner_email": current_user,
+        "blood_pressure": blood_pressure,
+        "pulse_rate": pulse_rate,
+        "body_temp": body_temp,
+        "medical_history": medical_history,
+        "current_medication": current_medication,
+        "allergies": allergies,
+        "uploaded_at": datetime.datetime.utcnow()
+    }
+
+    # Insert the document into the collection
+    documents_collection.insert_one(document)
+
+    flash("Patient data uploaded successfully!", "success")
+    return redirect(url_for('patient_home'))
+
 
 @app.route('/register/patient', methods=["POST"])
 def patient_registration():
@@ -167,9 +213,51 @@ def doctorsignin():
 
 @app.route('/home-doctor')
 @jwt_required()
-def token_protected():
+def doctor_home():
     current_user = get_jwt_identity()
     return render_template('doctor_home.html', email=current_user)
+
+@app.route("/doctor-search")
+@jwt_required()
+def doctor_search():
+    current_user = get_jwt_identity()
+    patient_data=users_collection.find()
+    patients=[]
+    for items in patient_data:
+        patients.append(items)
+    return render_template('Doctor_Search_Patient.html', email=current_user,patients=patients)
+
+@app.route("/doctor-alloted")
+@jwt_required()
+def doctor_alloted():
+    current_user = get_jwt_identity()  # Extract current doctor's email
+    doctor = doctors_collection.find_one({"email": current_user})  # Fetch doctor details
+
+    if not doctor:
+        flash("Doctor not found", "danger")
+        return redirect(url_for('doctor_home'))
+
+    # Fetch all patients assigned to the doctor
+    assigned_patients = users_collection.find({"assigned_doctor": current_user})
+    patient_data = []
+
+    for patient in assigned_patients:
+        documents = documents_collection.find({"owner_email": patient["email"]})
+        patient_data.append({
+            "name": patient["username"],
+            "age": patient.get("age", "N/A"),
+            "condition": patient.get("condition", "N/A"),
+            "documents": list(documents)
+        })
+
+    return render_template('Doctor_Alloted_Patients.html', doctor=doctor, patients=patient_data)
+
+@app.route("/doctor-request")
+@jwt_required()
+def doctor_request():
+    current_user = get_jwt_identity()
+    return render_template('doctor_Request_Patient.html', email=current_user)
+
 
 @app.route('/patient_home')
 def patient_home():
@@ -179,9 +267,25 @@ def patient_home():
 def patient_data():
     return render_template('patient-data.html')
 
-@app.route('/patient-medical-data')
+@app.route('/patient-medical-data', methods=['GET'])
+@jwt_required()
 def patient_medical_data():
-    return render_template('/patient-medical-data.html')
+    current_user = get_jwt_identity()  # Extract the email of the logged-in user
+    user = users_collection.find_one({"email": current_user})  # Retrieve user details
+
+    if not user:
+        flash("User not found", "danger")
+        return redirect(url_for('patient_home'))
+
+    # Fetch all medical records for the current user
+    user_documents = documents_collection.find({"owner_email": current_user})
+    
+    return render_template(
+        'patient-medical-data.html',
+        user=user,
+        documents=list(user_documents)
+    )
+
 
 @app.route('/patient-personal-data')
 def patient_personal_data():
