@@ -37,23 +37,27 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Address</th>
-                    <th>Status</th>
-                    <th>Reg. time</th>
-                    <th>Last Log</th>
+                    <th>Assigned</th>
                 </tr>
             </thead>
             <tbody>
+                {% for item in patients %}
                 <tr>
-                    <td>1000</td>
-                    <td>Ram Kumar</td>
-                    <td>ram.kumar@gmail.com</td>
-                    <td>9962549690</td>
-                    <td>Bangalore</td>
-                    <td>Active</td>
-                    <td>2024/10/13 12:36:02</td>
-                    <td>0</td>
+                    <td>{{item._id[-4:]}}</td>
+                    <td>{{ item.username if item.username else 'N/A' }}</td>
+                    <td>{{ item.email if item.email else 'N/A' }}</td>
+                    <td>{{ item.phone if item.phone else 'N/A' }}</td>
+                    <td>{% if item.assigned_doctor %}
+                        {{ item.assigned_doctor }}
+                    {% else %}
+                    <form action="/assign-doctor" method="POST">
+                        <input type="hidden" name="patient_id" value="{{ item._id }}">
+                        <input type="email" name="doctor_email" placeholder="Enter Doctor Email" required>
+                        <button type="submit">Assign</button>
+                    </form>
+                    {% endif %}</td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </section>

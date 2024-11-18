@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template, flash, redirect, url
 from pymongo import MongoClient
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity,unset_jwt_cookies
 import datetime
-
+from bson.objectid import ObjectId 
 # TMShmJ0HXVB5Rpf
 app = Flask(__name__)
 jwt = JWTManager(app)
@@ -36,6 +36,7 @@ except Exception as e:
 @app.route('/')
 def home():
     return render_template('index.html')
+#logout comment 
 @app.route('/logout')
 @jwt_required()
 def logout():
@@ -159,8 +160,54 @@ def doctor_registration():
         flash("Registration Successful")
         return redirect(url_for('doctor_login'))
 
+@app.route('/admin-home')
+@jwt_required()
+def admin_home():
+    current_user=get_jwt_identity()
+    return render_template('cloud_home.html', email=current_user)
 
+@app.route('/admin-patient')
+@jwt_required()
+def admin_patient():
+    current_user = get_jwt_identity()
     
+    # Fetch all patient data from the users_collection
+    all_patients = users_collection.find()
+    patient_list = [
+        {**doc, "_id": str(doc["_id"])} for doc in all_patients
+    ]
+
+    return render_template('cloud_patient_details.html', email=current_user, patients=patient_list)
+
+@app.route('/admin-doctor')
+@jwt_required()
+def admin_doctor():
+    current_user = get_jwt_identity()
+    
+    # Fetch all doctor data from the doctors_collection
+    all_doctors = doctors_collection.find()
+    doctor_list = [
+        {**doc, "_id": str(doc["_id"])} for doc in all_doctors
+    ]  
+    return render_template('cloud_doctor_details.html', email=current_user, doctors=doctor_list)
+
+@app.route('/admin/signin',methods=['POST'])
+def admin_signin():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    ver_email='admin@gmail.com'
+    ver_pass='admin@123'
+
+    if email==ver_email and password == ver_pass:
+        access_token = create_access_token(identity=email)
+        response = make_response(redirect('/admin-home'))
+        response.set_cookie('access_token_cookie', access_token, httponly=True) 
+        return response
+    else:
+        flash('Email or password is incorrect')
+
+    return redirect('/admin')
+
 @app.route('/patientsignin', methods=["POST"])
 def patientsignin():
     email = request.form.get('email')
@@ -292,7 +339,37 @@ def patient_personal_data():
     return render_template('patient-personal-data.html')
 
 
+@app.route('/assign-doctor', methods=['POST'])
+@jwt_required()
+def assign_doctor():
+    patient_id = request.form.get('patient_id')
+    doctor_email = request.form.get('doctor_email')
 
+    if not doctor_email:
+        flash("Doctor email is required", "danger")
+        return redirect(url_for('admin_patient'))  # Adjust as needed
+
+    result = users_collection.update_one(
+        {"_id": ObjectId(patient_id)},  # Match the patient by ID
+        {"$set": {"assigned_doctor": doctor_email}}
+    )
+
+    if result.modified_count > 0:
+        flash("Doctor assigned successfully!", "success")
+    else:
+        print("failing")
+        flash("Failed to assign doctor", "danger")
+    
+    return redirect(url_for('admin_patient'))  
+
+    current_user = get_jwt_identity()  
+    
+    documents = list(documents_collection.find({}))
+    
+    for document in documents:
+        document["_id"] = str(document["_id"])
+    
+    return render_template('admin_documents.html', documents=documents, email=current_user)
 
 if __name__ == "__main__":
     app.run(debug=True)

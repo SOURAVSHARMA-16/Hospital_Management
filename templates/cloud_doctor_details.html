@@ -39,49 +39,21 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Address</th>
+                    <!-- <th>Address</th>
                     <th>Status</th>
                     <th>Reg. time</th>
-                    <th>Last Log</th>
+                    <th>Last Log</th> -->
                 </tr>
             </thead>
             <tbody>
+                {%for item in doctors %}
                 <tr>
-                    <td>D001</td>
-                    <td>Sumit N</td>
-                    <td>Sumit.N@gmail.com</td>
-                    <td>9962549690</td>
-                    <td>chennai</td>
-                    <td>No</td>
-                    <td>2024/10/10 12:36:02</td>
-                    <td>
-                        0
-                    </td>
+                    <td>{{item._id[-4:]}}</td>
+                    <td>{{ item.username if item.username else 'N/A' }}</td>
+                    <td>{{ item.email if item.email else 'N/A' }}</td>
+                    <td>{{ item.phone if item.phone else 'N/A' }}</td>
                 </tr>
-                <tr>
-                    <td>D002</td>
-                    <td>Ankita Agarwal</td>
-                    <td>ankita.agarwal@gmail.com</td>
-                    <td>9123449690</td>
-                    <td>Pondicherry</td>
-                    <td>No</td>
-                    <td>2024/10/11 05:15:10</td>
-                    <td>
-                        0
-                    </td>
-                </tr>
-                <tr>
-                    <td>D003</td>
-                    <td>John Diamond</td>
-                    <td>johndiamond@gmail.com</td>
-                    <td>9123449690</td>
-                    <td>florida</td>
-                    <td>No</td>
-                    <td>2024/10/11 07:26:02</td>
-                    <td>
-                        0
-                    </td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </section>
