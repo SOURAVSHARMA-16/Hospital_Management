@@ -23,7 +23,7 @@
             </ul>
         </nav>
         <div class="logout">
-            <button>Logout</button>
+            <a href="/logout"><button>Logout</button></a>
         </div>
     </div>
 
@@ -34,15 +34,15 @@
         <div class="container">
             <h2>Patient Data</h2>
             <span>Unique Patient ID: 113498</span>
-            <form action="" method="POST">
+            <form action="/patient_data_upload" method="POST">
                 <div class="form-group">
                     <input type="text" id="bloodpressure" name="bloodpressure" placeholder="Blood Pressure" required>
                 </div>
-
+            
                 <div class="form-group">
                     <input type="text" id="pulse" name="pulse" placeholder="Pulse Rate" required>
                 </div>
-
+            
                 <div class="form-group">
                     <input type="number" id="temp" name="temp" placeholder="Body Temperature" required>
                 </div>
@@ -54,21 +54,9 @@
                 </div>
                 
                 <div class="form-group">
-                     <textarea id="allergies" name="allergies" placeholder="Enter any known allergies" rows="3"></textarea>
+                    <textarea id="allergies" name="allergies" placeholder="Enter any known allergies" rows="3"></textarea>
                 </div>
                
-                <div class="form-group">
-                    <textarea id="chronic_diseases" name="chronic_diseases" placeholder="Enter any chronic diseases (e.g., diabetes, hypertension)" rows="3"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <textarea id="recent_surgeries" name="recent_surgeries" placeholder="Enter details of any recent surgeries, if applicable" rows="3"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="file">Upload Medical Reports</label>
-                    <input type="file" id="file" name="file" multiple required>
-                </div>
                 <button type="submit">Submit</button>
             </form>
         </div>

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Health Guard | Registration </title>
-    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+    <title>Health Guard | Patient Medical Data</title>
     <link rel="stylesheet" href="../static/css/patient.css">
-
 </head>
 
 <body>
@@ -24,48 +22,55 @@
             </ul>
         </nav>
         <div class="logout">
-            <button>Logout</button>
+            <a href="/logout"><a href="/logout"><button>Logout</button></a></a>
         </div>
     </div>
 
     <!--=== Content Part ===-->
     <section class="patient-data">
-        <!-- <img class="home-icon-p" src="../static/images/patient-home.jpg" alt=""> -->
         <div class="container-p">
             <h2>PATIENT MEDICAL DATA</h2>
             <table>
-                <tr>
-                    <th style="width: 1rem;">Sl No.</th>
-                    <th style="width: 2rem;">Age</th>
-                    <th style="width: 7rem;">Blood Group</th>
-                    <th style="width: 3rem;">Gender</th>
-                    <th style="width: 9rem;">Blood Pressure</th>
-                    <th style="width: 7rem;">Pulse Rate</th>
-                    <th style="width: 5rem;">Body Temperature</th>
-                    <th style="width: 16rem;">Current Medications</th>
-                    <th style="width: 11rem;">Data File</th>
-                    <th style="width: 11rem;">Secret Key</th>
-                    <th style="width: 10rem;">Action</th>
-                </tr>
-                <tr>
-                    <th>01</th>
-                    <th>45</th>
-                    <th>B+</th>
-                    <th>Female</th>
-                    <th>80</th>
-                    <th>72</th>
-                    <th>37</th>
-                    <th>NA</th>
-                    <th>Data File</th>
-                    <th>Secret Key</th>
-                    <th>Action</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Sl No.</th>
+                        <th>Age</th>
+                        <th>Blood Group</th>
+                        <th>Gender</th>
+                        <th>Blood Pressure</th>
+                        <th>Pulse Rate</th>
+                        <th>Body Temperature</th>
+                        <th>Current Medications</th>
+                        <th>Upload Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if documents %}
+                        {% for doc in documents %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ doc.get('age', 'N/A') }}</td>
+                            <td>{{ doc.get('blood_group', 'N/A') }}</td>
+                            <td>{{ doc.get('gender', 'N/A') }}</td>
+                            <td>{{ doc.get('blood_pressure', 'N/A') }}</td>
+                            <td>{{ doc.get('pulse_rate', 'N/A') }}</td>
+                            <td>{{ doc.get('body_temp', 'N/A') }}</td>
+                            <td>{{ doc.get('current_medication', 'N/A') }}</td>
+                            <td>{{ doc.get('uploaded_at') }}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="11">No medical data available.</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+                
             </table>
-            
         </div>
     </section>
 
-    <!--/container-->
     <!--=== End Content Part ===-->
 
     <footer id="footer">
@@ -76,51 +81,42 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                         the industry's standard dummy text ever since the 1500s, </p>
                 </div>
-
             </div>
             <div class="col-md-3">
                 <div class="useful-link">
                     <h4>Useful Links</h4>
                     <div class="use-links">
-                        <li><a href="index.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
-                        <li><a href="about.html"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
-                        <li><a href="gallery.html"><i class="fa-solid fa-angles-right"></i>Patient</a></li>
-                        <li><a href="contact.html"><i class="fa-solid fa-angles-right"></i> Doctor</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Patient</a></li>
+                        <li><a href="contact.html">Doctor</a></li>
                     </div>
                 </div>
-
             </div>
             <div class="col-md-3">
                 <div class="social-links">
                     <h4>Follow Us</h4>
                     <div class="social-icons">
-                        <li><a href=""><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
-                        <li><a href=""><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                        <li><a href=""><i class="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
                     </div>
                 </div>
-
-
             </div>
             <div class="col-md-3">
                 <div class="address">
                     <h4>Address</h4>
                     <div class="address-links">
-                        <li class="address1"><i class="fa-solid fa-location-dot"></i> Kolathur ramankulam-
-                            Malappuram Dt
-                            Kerala 679338</li>
-                        <li><a href=""><i class="fa-solid fa-phone"></i> +91 90904500112</a></li>
-                        <li><a href=""><i class="fa-solid fa-envelope"></i> mail@1234567.com</a></li>
+                        <li class="address1">Kolathur Ramankulam, Malappuram Dt, Kerala 679338</li>
+                        <li><a href="tel:+9190904500112">+91 90904500112</a></li>
+                        <li><a href="mailto:mail@1234567.com">mail@1234567.com</a></li>
                     </div>
                 </div>
             </div>
-
         </div>
     </footer>
-    <!-- footer section end -->
 
-
-    <!-- footer copy right section start -->
+    <!-- footer copy right section -->
     <div id="copy-right">
         <p class="copy-right-sec">HealthGuard &copy; 2024-25</p>
     </div>
