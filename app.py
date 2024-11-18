@@ -36,6 +36,7 @@ except Exception as e:
 @app.route('/')
 def home():
     return render_template('index.html')
+#logout comment 
 @app.route('/logout')
 @jwt_required()
 def logout():
