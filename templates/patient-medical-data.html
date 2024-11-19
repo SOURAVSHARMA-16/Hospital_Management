@@ -47,18 +47,17 @@
                 <tbody>
                     {% if documents %}
                         {% for doc in documents %}
-                        <tr>
-                            <td>{{ loop.index }}</td>
-                            <td>{{ doc.get('age', 'N/A') }}</td>
-                            <td>{{ doc.get('blood_group', 'N/A') }}</td>
-                            <td>{{ doc.get('gender', 'N/A') }}</td>
-                            <td>{{ doc.get('blood_pressure', 'N/A') }}</td>
-                            <td>{{ doc.get('pulse_rate', 'N/A') }}</td>
-                            <td>{{ doc.get('body_temp', 'N/A') }}</td>
-                            <td>{{ doc.get('current_medication', 'N/A') }}</td>
-                            <td>{{ doc.get('uploaded_at') }}</td>
-                            
-                        </tr>
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ user.get('age', 'N/A') }}</td>
+                                <td>{{ user.get('bloodgroup', 'N/A') }}</td>
+                                <td>{{ user.get('gender', 'N/A') }}</td>
+                                <td>{{ doc.get('blood_pressure', 'N/A') }}</td>
+                                <td>{{ doc.get('pulse_rate', 'N/A') }}</td>
+                                <td>{{ doc.get('body_temp', 'N/A') }}</td>
+                                <td>{{ doc.get('current_medication', 'N/A') }}</td>
+                                <td>{{ doc.get('uploaded_at', 'N/A') }}</td>
+                            </tr>
                         {% endfor %}
                     {% else %}
                     <tr>

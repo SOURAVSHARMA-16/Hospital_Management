@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Details</title>
+    <title>Patient Activation</title>
     <link rel="stylesheet" href="../static/css/cloud1.css">
 </head>
 <body>
@@ -13,13 +13,11 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="./cloud_home.html">Home</a></li>
-                <li><a href="./cloud_patient_activation.html">Patients Activation</a></li>
-                <li><a href="./cloud_doctor_activation.html">Doctors Activation</a></li>
-                <li><a href="./cloud_patient_details.html">Patients</a></li>
-                <li><a href="./cloud_doctor_details.html">Doctors</a></li>
-                <li><a href="#">Files</a></li>
-                <li><a href="./cloud_assign_doctor.html">Assign Doctors</a></li>
+                <li><a href="/admin-home">Home</a></li>
+                <li><a href="/admin-doctor-inactive">Doctors Activation</a></li>
+                <li><a href="/admin-patient">Patients</a></li>
+                <li><a href="/admin-doctor">Doctors</a></li>
+                <li><a href="/assign-doctor-form">Assign Doctors</a></li>
                 <li><a href="#">Doctor Request</a></li>
             </ul>
         </nav>
@@ -28,35 +26,38 @@
         </div>
     </header>
 
-    <section class="assign-doctor">
-        <h2>Assign Doctor for Patients</h2>
-        <main>
-            <form action="#">
-                <div class="form-group">
-                    <label for="patient">Select the Patient</label>
-                    <select id="patient" name="patient">
-                        <option value="1000">Patient ID: 1000</option>
-                        <!-- Add more patient IDs here if needed -->
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="doctor">Select the Doctor</label>
-                    <select id="doctor" name="doctor">
-                        <option value="D001">Doctor ID: D001 and Doctor Name: Sumit N
-                        </option>
-                        <option value="D002">Doctor ID: D002 and Doctor Name: Ankita Agarwal</option>
-                        <option value="D003">Doctor ID: D003 and Doctor Name: John Diamond</option>
-                        <!-- Add more doctor names here if needed -->
-                    </select>
-                </div>
-
-                <div class="submit-btn">
-                    <button type="submit">Assign Doctor</button>
-                </div>
-            </form>
-        </main>
-    
+    <section class="content">
+        <h2>Assign Doctors</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Assigned</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in patients %}
+                <tr>
+                    <td>{{item._id[-4:]}}</td>
+                    <td>{{ item.username if item.username else 'N/A' }}</td>
+                    <td>{{ item.email if item.email else 'N/A' }}</td>
+                    <td>{{ item.phone if item.phone else 'N/A' }}</td>
+                    <td>{% if item.assigned_doctor %}
+                        {{ item.assigned_doctor }}
+                    {% else %}
+                    <form action="/assign-doctor" method="POST">
+                        <input type="hidden" name="patient_id" value="{{ item._id }}">
+                        <input type="email" name="doctor_email" placeholder="Enter Doctor Email" required>
+                        <button type="submit">Assign</button>
+                    </form>
+                    {% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </section>
 
      <!-- Footer -->

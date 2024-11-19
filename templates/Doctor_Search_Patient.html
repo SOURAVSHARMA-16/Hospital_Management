@@ -32,9 +32,8 @@
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Email</th>
                     <th>Age</th>
-                    <th>Condition</th>
-                    <th>Department</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -43,8 +42,7 @@
                 <tr>
                     <td>{{item.username}}</td>
                     <td>{{item.email}}</td>
-                    <td>Hypertension</td>
-                    <td>Cardiology</td>
+                    <td>{{item.age}}</td>
                     <td><button class="details-btn">View Details</button></td>
                 </tr>
                 {% endfor %}
