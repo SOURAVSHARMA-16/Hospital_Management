@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Activation</title>
     <link rel="stylesheet" href="../static/css/cloud1.css">
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -13,16 +15,11 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <ul class="nav-links">
-                    <li><a href="./cloud_home.html">Home</a></li>
-                    <li><a href="./cloud_patient_activation.html">Patients Activation</a></li>
-                    <li><a href="./cloud_doctor_activation.html">Doctors Activation</a></li>
-                    <li><a href="./cloud_patient_details.html">Patients</a></li>
-                    <li><a href="./cloud_doctor_details.html">Doctors</a></li>
-                    <li><a href="#">Files</a></li>
-                    <li><a href="./cloud_assign_doctor.html">Assign Doctors</a></li>
-                    <li><a href="#">Doctor Request</a></li>
-                </ul>
+                <li><a href="/admin-home">Home</a></li>
+                <li><a href="/admin-doctor-inactive">Doctors Activation</a></li>
+                <li><a href="/admin-patient">Patients</a></li>
+                <li><a href="/admin-doctor">Doctors</a></li>
+                <li><a href="/assign-doctor-form">Assign Doctors</a></li>
             </ul>
         </nav>
         <div class="logout">
@@ -41,56 +38,39 @@
                     <th>Phone</th>
                     <th>Address</th>
                     <th>Status</th>
-                    <th>Reg. time</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
+                {% for doctor in doctors %}
                 <tr>
-                    <td>D001</td>
-                    <td>Sumit N</td>
-                    <td>Sumit.N@gmail.com</td>
-                    <td>9962549690</td>
-                    <td>chennai</td>
-                    <td>No</td>
-                    <td>2024/10/10 12:36:02</td>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ doctor.get('username', 'N/A') }}</td>
+                    <td>{{ doctor.get('email', 'N/A') }}</td>
+                    <td>{{ doctor.get('phone', 'N/A') }}</td>
+                    <td>{{ doctor.get('address', 'N/A') }}</td>
+                    <td>{{ doctor.get('registered_at', 'N/A') }}</td>
                     <td>
-                        <button class="approve-btn">Approve</button>
-                        <button class="reject-btn">Reject</button>
+                        <form method="POST" style="display: inline;">
+                            <input type="hidden" name="doctor_id" value="{{ doctor['_id'] }}">
+                            <input type="hidden" name="action" value="approve">
+                            <button type="submit" class="approve-btn">Approve</button>
+                        </form>
+                        <form method="POST" style="display: inline;">
+                            <input type="hidden" name="doctor_id" value="{{ doctor['_id'] }}">
+                            <input type="hidden" name="action" value="reject">
+                            <button type="submit" class="reject-btn">Reject</button>
+                        </form>
                     </td>
                 </tr>
-                <tr>
-                    <td>D002</td>
-                    <td>Ankita Agarwal</td>
-                    <td>ankita.agarwal@gmail.com</td>
-                    <td>9123449690</td>
-                    <td>Pondicherry</td>
-                    <td>No</td>
-                    <td>2024/10/11 05:15:10</td>
-                    <td>
-                        <button class="approve-btn">Approve</button>
-                        <button class="reject-btn">Reject</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>D003</td>
-                    <td>John Diamond</td>
-                    <td>johndiamond@gmail.com</td>
-                    <td>9123449690</td>
-                    <td>florida</td>
-                    <td>No</td>
-                    <td>2024/10/10 07:26:02</td>
-                    <td>
-                        <button class="approve-btn">Approve</button>
-                        <button class="reject-btn">Reject</button>
-                    </td>
-                </tr>
+                {% endfor %}
             </tbody>
+
         </table>
     </section>
 
-     <!-- Footer -->
-     <footer id="footer">
+    <!-- Footer -->
+    <footer id="footer">
         <div class="row">
             <div class="col-md-3">
                 <div class="footer-about">
@@ -149,4 +129,5 @@
 
     <script src="../static/js/hamburger.js"></script>
 </body>
+
 </html>

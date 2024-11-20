@@ -179,17 +179,84 @@ def admin_patient():
 
     return render_template('cloud_patient_details.html', email=current_user, patients=patient_list)
 
+@app.route('/assign-doctor-form')
+@jwt_required()
+def assign_doctor_form():
+    current_user = get_jwt_identity()
+    
+    # Fetch all patient data from the users_collection
+    all_patients = users_collection.find()
+    patient_list = [
+        {**doc, "_id": str(doc["_id"])} for doc in all_patients
+    ]
+
+    return render_template('cloud_assign_doctor.html', email=current_user, patients=patient_list)
+
 @app.route('/admin-doctor')
 @jwt_required()
 def admin_doctor():
     current_user = get_jwt_identity()
     
-    # Fetch all doctor data from the doctors_collection
-    all_doctors = doctors_collection.find()
-    doctor_list = [
-        {**doc, "_id": str(doc["_id"])} for doc in all_doctors
+    # Fetch doctors with active=true from doctors_collection
+    active_doctors = doctors_collection.find({"active": True})
+    active_doctor_list = [
+        {**doc, "_id": str(doc["_id"])} for doc in active_doctors
     ]  
-    return render_template('cloud_doctor_details.html', email=current_user, doctors=doctor_list)
+
+    return render_template(
+        'cloud_doctor_details.html',
+        email=current_user,
+        doctors=active_doctor_list
+    )
+
+@app.route('/admin-doctor-inactive', methods=['GET', 'POST'])
+@jwt_required()
+def admin_doctor_inactive():
+    current_user = get_jwt_identity()
+
+    if request.method == 'POST':
+        doctor_id = request.form.get('doctor_id')
+        action = request.form.get('action')
+
+        if not doctor_id or not action:
+            flash("Doctor ID and action are required.", "danger")
+            return redirect(url_for('admin_doctor_inactive'))
+
+        if action == 'approve':
+            # Set active=True for the doctor
+            result = doctors_collection.update_one(
+                {"_id": ObjectId(doctor_id)},
+                {"$set": {"active": True}}
+            )
+            if result.modified_count > 0:
+                flash("Doctor approved successfully!", "success")
+            else:
+                flash("Failed to approve the doctor.", "danger")
+        elif action == 'reject':
+            # Delete the doctor from the database
+            result = doctors_collection.delete_one({"_id": ObjectId(doctor_id)})
+            if result.deleted_count > 0:
+                flash("Doctor rejected and removed successfully!", "success")
+            else:
+                flash("Failed to reject the doctor.", "danger")
+        else:
+            flash("Invalid action.", "danger")
+            return redirect(url_for('admin_doctor_inactive'))
+
+        return redirect(url_for('admin_doctor_inactive'))
+
+    # Fetch doctors with active=false from doctors_collection
+    inactive_doctors = doctors_collection.find({"active": False})
+    inactive_doctor_list = [
+        {**doc, "_id": str(doc["_id"])} for doc in inactive_doctors
+    ]
+
+    return render_template(
+        'cloud_doctor_activation.html',
+        email=current_user,
+        doctors=inactive_doctor_list
+    )
+
 
 @app.route('/admin/signin',methods=['POST'])
 def admin_signin():
@@ -294,7 +361,7 @@ def doctor_alloted():
             "name": patient["username"],
             "age": patient.get("age", "N/A"),
             "condition": patient.get("condition", "N/A"),
-            "documents": list(documents)
+            "documents": list(documents)[:3]
         })
 
     return render_template('Doctor_Alloted_Patients.html', doctor=doctor, patients=patient_data)
@@ -327,11 +394,13 @@ def patient_medical_data():
     # Fetch all medical records for the current user
     user_documents = documents_collection.find({"owner_email": current_user})
     
+    # Return user details and medical documents to the template
     return render_template(
         'patient-medical-data.html',
-        user=user,
-        documents=list(user_documents)
+        user=user,                # User details
+        documents=list(user_documents)  # Medical records
     )
+
 
 
 @app.route('/patient-personal-data')
@@ -342,34 +411,60 @@ def patient_personal_data():
 @app.route('/assign-doctor', methods=['POST'])
 @jwt_required()
 def assign_doctor():
-    patient_id = request.form.get('patient_id')
-    doctor_email = request.form.get('doctor_email')
+    patient_id = request.form.get('patient_id')  # Get patient ID
+    doctor_email = request.form.get('doctor_email')  # Get doctor's email
 
-    if not doctor_email:
-        flash("Doctor email is required", "danger")
-        return redirect(url_for('admin_patient'))  # Adjust as needed
+    if not patient_id or not doctor_email:
+        flash("Both patient ID and doctor email are required", "danger")
+        return redirect(url_for('assign-doctor-form'))  # Ensure this route exists
 
-    result = users_collection.update_one(
-        {"_id": ObjectId(patient_id)},  # Match the patient by ID
-        {"$set": {"assigned_doctor": doctor_email}}
+    try:
+        # Attempt to update the patient record
+        result = users_collection.update_one(
+            {"_id": ObjectId(patient_id)},  # Match the patient by ID
+            {"$set": {"assigned_doctor": doctor_email}}
+        )
+
+        if result.modified_count > 0:
+            flash("Doctor assigned successfully!", "success")
+        else:
+            flash("Failed to assign doctor. No changes made.", "warning")
+
+    except Exception as e:
+        # Log the error and inform the user
+        print(f"Error assigning doctor: {e}")
+        flash("An error occurred while assigning the doctor. Please try again.", "danger")
+
+    # Redirect to the admin patient page
+    return redirect(url_for('assign-doctor-form'))
+
+
+@app.route('/patient-personal-data-form', methods=['POST'])
+@jwt_required()
+def patient_personal_data_form():
+    current_user = get_jwt_identity()  # Get the logged-in user's identity (email)
+
+    # Extract form data
+    age = request.form.get('age')
+    gender = request.form.get('gender')
+    bloodgroup = request.form.get('bloodgroup')
+
+    # Prepare the data to be inserted or updated
+    patient_data = {
+        'age': age,
+        'gender': gender,
+        'bloodgroup': bloodgroup
+    }
+
+    # Update the existing record or insert a new one
+    users_collection.update_one(
+        {'email': current_user},  # Filter by logged-in user's email
+        {'$set': patient_data},  # Update with new data
+        upsert=True              # Insert if no matching record exists
     )
 
-    if result.modified_count > 0:
-        flash("Doctor assigned successfully!", "success")
-    else:
-        print("failing")
-        flash("Failed to assign doctor", "danger")
-    
-    return redirect(url_for('admin_patient'))  
-
-    current_user = get_jwt_identity()  
-    
-    documents = list(documents_collection.find({}))
-    
-    for document in documents:
-        document["_id"] = str(document["_id"])
-    
-    return render_template('admin_documents.html', documents=documents, email=current_user)
+    # Return a success message or redirect to another page
+    return render_template('patient-personal-data.html', success=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
